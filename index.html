@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhishGuard - Awareness & Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <h1>PhishGuard</h1>
+  <p class="subtitle">Phishing Awareness & URL Risk Detection</p>
+
+  <div class="card">
+    <form method="post">
+      <label for="url">Enter a URL to analyze</label>
+      <input id="url" name="url" value="{{ url }}" placeholder="https://example.com/login" required>
+      <button type="submit">Analyze URL</button>
+    </form>
+  </div>
+
+  {% if result %}
+  <div class="card result">
+    <h2>{{ result.label }}</h2>
+    <p><strong>Risk:</strong> {{ result.risk }} &nbsp; | &nbsp; <strong>Score:</strong> {{ result.score }}/100</p>
+    <h3>Why was it classified this way?</h3>
+    <ul>
+      {% for reason in result.reasons %}
+      <li>{{ reason }}</li>
+      {% endfor %}
+    </ul>
+    <details>
+      <summary>Technical features</summary>
+      <pre>{{ result.features }}</pre>
+    </details>
+  </div>
+  {% endif %}
+
+  <div class="card awareness">
+    <h2>Phishing awareness tips</h2>
+    <ul>
+      <li>Check the real domain before entering credentials.</li>
+      <li>Do not trust urgency or threats in unexpected messages.</li>
+      <li>Hover over links before clicking them.</li>
+      <li>Never share passwords or OTPs in response to unsolicited requests.</li>
+      <li>Report suspicious emails/messages to your security team.</li>
+    </ul>
+  </div>
+
+  <p class="footer">Educational demo — never use this tool as the only security control.</p>
+</div>
+</body>
+</html>
