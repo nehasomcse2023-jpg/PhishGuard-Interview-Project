@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PhishGuard Warning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .warning {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #d32f2f;
+        }
+
+        .url {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            word-break: break-all;
+            margin: 20px 0;
+        }
+
+        .score {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 15px;
+        }
+
+        .back {
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="warning">
+    <h1>⚠️ PhishGuard Warning</h1>
+    <h2>Potential Phishing Website Detected</h2>
+
+    <p>
+        PhishGuard has detected suspicious characteristics in this website.
+    </p>
+
+    <div class="url" id="url">Checking...</div>
+    <div class="score" id="score">Risk Score: --</div>
+
+    <p>
+        Do not enter passwords, OTPs, banking information, or other sensitive information.
+    </p>
+
+    <button class="back" id="backBtn">
+        ← Go Back to Safety
+    </button>
+</div>
+
+<script src="warning.js"></script>
+
+</body>
+</html>
